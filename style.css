@@ -1,0 +1,40 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  #cv-template{
+    display: none;
+  }
+  .myimg{
+    border: 2px solid black;
+    width: 200px;
+    border-radius: 50%;
+  }
+  .background{
+    background-color: lightcoral;
+    z-index: 1000;
+  }
+  .header{
+    color: white;
+    align-items: center;
+  }
+  .footer{
+    background-color: rgb(32, 34, 36); 
+  }
+  .bt{
+    border: none;
+    background-color: rgb(139, 139, 139); 
+  }
+  .icon{
+    padding: 2px 4px 2px 4px;
+  }
+  .text{
+    color: #b9b9b9;
+    padding-bottom: 5px;
+  }
+  .bottom{
+    text-align: center;
+  }

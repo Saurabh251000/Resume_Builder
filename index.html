@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resume Builder</title>
+      <!-- Google Fonts -->
+      <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- link bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <style>
+      @media print {
+        body {
+          width: 100%;
+          height: auto;
+        }
+        .page-break {
+        page-break-after: always;
+      }
+      }
+    </style>
+  </head>
+  <body> 
+
+    <div class="bg-dark border-bottom border-bottom-dark " data-bs-theme="dark" id="nav">
+        <div class="text-center header py-2">
+            <h1>Resume Generator</h1>
+        </div>
+    </div>
+    <!-- CV Form  -->
+    <div class="container" id="cv-form">
+        <div class="row my-2">
+            <div class="col-md-6">
+                <!-- first col -->
+                <h3>Personal Information</h3>
+                <div class="form-group">
+                    <label for="nameFeild">Your Name</label>
+                    <input type="text" class="form-control" id="nameFeild" placeholder="Enter here">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="eduFeild">Your Current Education</label>
+                    <input type="text" class="form-control" id="eduFeild" placeholder="Enter here">
+                </div>
+                <!-- Contact Number -->
+                <div class="form-group mt-2">
+                    <label for="contactFeild">Your Contact</label>
+                    <input type="tel" class="form-control" id="contactFeild" placeholder="Enter here">
+                </div>
+                <!-- Email ID -->
+                <div class="form-group mt-2">
+                    <label for="emailFeild">Your Email ID</label>
+                    <input type="email" class="form-control" id="emailFeild" placeholder="Enter here">
+                </div>
+                <!-- Date of Birth -->
+                <div class="form-group mt-2">
+                    <label for="doblFeild">Your DOB</label>
+                    <input type="date" class="form-control" id="dobFeild" placeholder="Enter here">
+                </div>
+                <!-- Profile picture  -->
+                <div class="form-group mt-2">
+                    <label for="picFeild">Select Your Profile Photo</label>
+                    <input type="file" class="form-control" id="picFeild" >
+                </div>
+                <!-- Address -->
+                <div class="form-group mt-2">
+                    <label for="addressFeild"> Your Address</label>
+                    <textarea type="text" class="form-control" id="addressFeild" placeholder="Enter here" ></textarea>
+                </div>
+                <!-- Area of Interest -->
+                <div class="form-group mt-2">
+                    <label for="interestFeild">Area of Interest</label>
+                    <textarea type="text" class="form-control" id="interestFeild" placeholder="Enter here" ></textarea>
+                </div>
+                            <!-- Important Links -->
+                <p class="text-secondary my-3">Important Links</p>
+                <div class="form-group">
+                    <label for="gitFeild">GitHub Link</label>
+                    <input type="text" class="form-control" id="gitFeild" placeholder="Enter here">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="linkdinFeild">Linkdin Profile Link</label>
+                    <input type="text" class="form-control" id="linkedinFeild" placeholder="Enter here">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="fbFeild">Facebook Link</label>
+                    <input type="text" class="form-control" id="fbFeild" placeholder="Enter here">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="instaFeild">Instagram Link</label>
+                    <input type="text" class="form-control" id="instaFeild" placeholder="Enter here">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="twitterFeild">Twitter Account Link</label>
+                    <input type="text" class="form-control" id="twitterFeild" placeholder="Enter here">
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <!-- second col -->
+                <h3>Professional Information</h3>
+                <!-- Academic Qualifications -->
+                <div class="form-group mt-2" id="AddAQ"> 
+                    <label for="">Academic Qualifications</label>
+                    <textarea type="text" class="form-control eqFeild"  placeholder="Enter here"></textarea>
+                    <!-- New Text Area-->
+                    <div class="container text-center mt-2" id="aqAddbtn">
+                        <button onclick="addNewAQ()" class="btn btn-primary btn-sm">Add+</button>
+                    </div>
+                </div>
+
+                <!-- Work Experience / Positions of Responsibility & Extra Curriculars -->
+                <div class="form-group mt-2" id="we">
+                    <label for="">Work Experience</label>
+                    <textarea type="text" class="form-control weFeild"  placeholder="Enter here"></textarea>
+                    <!-- New Text Area-->
+                    <div class="container text-center mt-2" id="weAddbtn">
+                        <button onclick="addNewWE()" class="btn btn-primary btn-sm">Add+</button>
+                    </div>
+                </div>
+                <!-- Awards / Scholarships / Academic Achievements -->
+                <div class="form-group mt-2" id="Awards">
+                    <label for="">Awards / Scholarships / Academic Achievements</label>
+                    <textarea type="text" class="form-control aFeild"  placeholder="Enter here"></textarea>
+                    <!-- New Text Area-->
+                    <div class="container text-center mt-2" id="Addbtn">
+                        <button onclick="Awardsfun()" class="btn btn-primary btn-sm">Add+</button>
+                    </div>
+                </div>
+                <!-- Projects -->
+                <div class="form-group mt-2" id="pro">
+                    <label for="">Projects</label>
+                    <textarea type="text" class="form-control pFeild"  placeholder="Enter here"></textarea>
+                   <!-- New Text Area-->
+                    <div class="container text-center mt-2" id="pAddbtn">
+                        <button onclick="AddProject()" class="btn btn-primary btn-sm">Add+</button>
+                    </div>
+                </div>
+                <!-- Skills -->
+                <h5 class="text-secondary my-3 pt-2">Skills</h5>
+                <!-- Computer languages -->
+                <div class="form-group">
+                    <label for="comFeild">Computer Languages</label>
+                    <textarea type="text" class="form-control" id="comFeild" placeholder="e.g. C++ , HTML, CSS"></textarea>
+                </div>
+                <!-- Software Packages -->
+                <div class="form-group mt-2">
+                    <label for="softFeild">Software Packages</label>
+                    <textarea type="text" class="form-control" id="softFeild" placeholder="e.g. Figma, AutoCAD, MS Office"></textarea>
+                </div>
+                <!-- Additional Courses -->
+                <div class="form-group mt-2">
+                    <label for="addFeild">Additional Courses</label>
+                    <textarea type="text" class="form-control" id="addFeild" placeholder="Enter here"></textarea>
+                </div>
+                <!-- Languages Known -->
+                <div class="form-group mt-2">
+                    <label for="langFeild">Languages Known</label>
+                    <input type="text" class="form-control" id="langFeild" placeholder="Enter here">
+                </div>
+            </div>
+        </div>
+        <div class="contaner text-center mt-3">
+            <button onclick="GenerateCV()" class="btn btn-dark btn-lg" id="Generate">Generate CV</button>
+        </div>
+    </div>
+    
+    <!-- CV Template -->
+    <div class="container fluid" id="cv-template">
+        <div class="row">
+            <div class="col-md-4 text-center py-3 background">
+                <!-- first col -->
+                <img src="https://campussafetyconference.com/wp-content/uploads/2020/08/iStock-476085198.jpg" class="img-fluid myimg my-3" alt="error" id="mypic">
+                <div class="container py-1">
+                    <p id="nameT">Saurabh Kushwaha</p>
+                    <p id="BioT">IITR 24</p>
+                    <p id="contactT">+923875499234</p>
+                    <p id="emailT">saurabh@gmail.com</p>
+                    <p id="dobT">D.O.B. : 25 oct 2001</p>
+                    <p id="addressT">188, Paswara Mahoba UP - 210427</p>
+                    <hr>
+                    <p>Important Links</p>
+                    <div class="d-flex justify-content-around">
+                        <div id="gitT"><a href="http://" target="_blank" ><img src="icons/github.svg" alt=""></a></div>
+                        <div id="linkT"><a href="http://" target="_blank" ><img src="icons/linkedin.svg" alt=""></a></div>
+                        <div id="instaT"><a href="http://" target="_blank" ><img src="icons/instagram.svg" alt=""></a></div>
+                        <div id="fbT"><a href="http://" target="_blank" ><img src="icons/facebook.svg" alt=""></a></div>
+                        <div id="twitterT"><a href="http://" target="_blank" ><img src="icons/twitter.svg" alt=""></a></div>
+                    </div>
+                    <hr>
+                    <div class="container">
+                        <h5>Area of Interest</h5>
+                        <p id="aiT">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, cupiditate.</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-8">
+                <!-- second col -->
+                <!-- Academic Qualification -->
+                <div class="card mt-2">
+                    <div class="card-header background">
+                        <h5>Academic Qualification</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul id="aqT">
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, consequuntur.</li>
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, consequuntur.</li>
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, consequuntur.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- work Experience -->
+                <div class="card mt-3">
+                    <div class="card-header background">
+                        <h5>Work Experience</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul id="weT">
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, consequuntur.</li>
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, consequuntur.</li>
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, consequuntur.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Awards / Scholarships / Academic Achievements -->
+                <div class="card mt-3">
+                    <div class="card-header background">
+                        <h5>Awards / Scholarships / Academic Achievements</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul id="awT">
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, consequuntur.</li>
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, consequuntur.</li>
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, consequuntur.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Projects -->
+                <div class="card mt-3">
+                    <div class="card-header background">
+                        <h5>Projects</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul id="projectT">
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, consequuntur.</li>
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, consequuntur.</li>
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, consequuntur.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Skills -->
+                <div class="card mt-3">
+                    <div class="card-header background">
+                        <h5>Skills</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>Computer Languages : </strong><span id="clT">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span></li>
+                            <li><strong>Software Packages : </strong><span id="spT">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span></li>
+                            <li><strong>Additional Courses :</strong><span id="acT">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span></li>
+                            <li><strong>Languages Known : </strong><span id="lkT">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container mt-4 text-center">
+            <button onclick="printCV()"  class="btn btn-dark btn-lg" id="printT">Print CV</button>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer mt-5" id="footer">
+        <div class="row pt-4 d-flex justify-content-around">
+            <div class="col-md-3" >
+                <!-- left footer  -->
+               <div class="left">
+                    <div>
+                        <button class="bt btn-sm"><img class="icon" src="icons/geo-alt.svg" alt=" "></button><span class="text"> &nbsp; Rajiv Bhawan IIT Roorkee</span>
+                    </div>
+                    <div>
+                        <button class="bt btn-sm mt-3"><img class="icon" src="icons/telephone-fill.svg" alt=" "></button><span class="text"> &nbsp; +91 324435543 </span>
+                    </div>               
+               </div>             
+            </div>
+            
+            <div class="col-md-3 text-center Right">
+               <!-- Right footer  -->
+               <h4 class="text">Follow me</h4>
+               <div class="links d-flex justify-content-around">
+                    <button class="bt btn-sm"><a href="https://github.com/Saurabh251000" target="_blank"><img class="icon" src="icons/github.svg" alt=""></a></button>
+                    <button class="bt btn-sm"><a href="https://www.linkedin.com/in/saurabh-kushwaha-064017212/" target="_blank"><img class="icon" src="icons/linkedin.svg" alt=""></a></button>
+                    <button class="bt btn-sm"><a href="https://www.instagram.com/_restart__art" target="_blank"><img class="icon" src="icons/instagram.svg" alt=""></a></button>
+                    <button class="bt btn-sm"><a href="https://twitter.com/25100rabh" target="_blank"><img class="icon" src="icons/twitter.svg" alt=""></a></button>
+                    <button class="bt btn-sm"><a href="https://www.facebook.com/saurabh.kushwaha.94043/" target="_blank"><img class="icon" src="icons/facebook.svg" alt=""></a></button>
+                    
+               </div>
+            </div>
+        </div>
+        <div class="text mt-3 bottom"><p>Developed by  &#10084; Saurabh Kushwaha || All rights reserved till - 2024</p></div>
+    </footer>
+    <script src="script.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>
