@@ -22,4 +22,4 @@
 
 **Website Link :** https://saurabh251000.github.io/CodeClause_Resume_Builder/
 
-**GitHub Repo Link :** 
+**GitHub Repo Link :** https://github.com/Saurabh251000/CodeClause_Resume_Builder.git
