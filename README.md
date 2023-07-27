@@ -16,7 +16,7 @@
 
 ## Tech Stack
 
-**Tool Used :** VS Code , GitHub
+**Tool Used :** VS Code , GitHub 
 
 **Language Used :** HTML, CSS, JavaScript
 
