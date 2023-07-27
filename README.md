@@ -18,7 +18,7 @@
 
 **Tool Used :** VS Code , GitHub
 
-**Languge Used :** HTML, CSS, JavaSript
+**Language Used :** HTML, CSS, JavaScript
 
 **Website Link :** https://saurabh251000.github.io/CodeClause_Resume_Builder/
 
